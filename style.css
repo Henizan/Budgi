@@ -1,15 +1,29 @@
 
-  .contenu{
+body{
+    background-color: #f1f1f1;
+}
+
+.titre{
     font-family: "Poppins", sans-serif;
     font-style: normal;
     text-align: center;
-  }
-
-.home{
-    height: 100vh;
+    color: #0e1c36;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+.contenu{
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    text-align: center;
+    color: #0e1c36;
+}
+
+.contenu a{
+    text-decoration: none;
+    color: #0e1c36;
 }
 
 h1{
@@ -18,6 +32,9 @@ h1{
 
 h1 span {
     font-weight: 900;
+    color: #6be2cf;
+    -webkit-text-stroke-color: #0e1c36;
+    -webkit-text-stroke-width: 1px;
 }
 
 .nav-toggler {
@@ -41,7 +58,7 @@ h1 span {
     display: block;
     width: 100%;
     height: 2px;
-    background: black;
+    background: #0e1c36;
     transition: transform 0.3s ease-out, opacity 0.1s ease-out;
 }
 
@@ -73,14 +90,15 @@ nav{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #39b2ab;
-    border-bottom: 1px solid #cfcfcf;
+    background: #9ee3d1;
+    border-bottom: 1px solid #0e1c36;
     transform: translateY(-100%);
     transition: transform 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
+    overflow: hidden;
 }
 
 nav.active {
-    transform: translate(0);
+    transform: translateY(0);
 }
 
 nav a{
@@ -90,4 +108,32 @@ nav a{
     text-decoration: none;
     display: block;
     margin: 10px 0;
+}
+
+.logo1 {
+    position: fixed;
+    padding: 15px;
+    height: 150px;
+}
+
+
+.register_signin_form{
+    font-family: "Poppins", sans-serif;
+    width: 350px;
+    padding: 20px;
+    background-color: #9ee3d1;
+    color: #0e1c36;
+    flex-direction: column;
+    display: flex;
+    border-radius: 6px;
+}
+
+.boutton{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #0e1c36;
+    padding: 25px;
+    border: solid 1px #0e1c36;
+    border-radius: 10px;
+    background-color: #9ee3d1;
 }
