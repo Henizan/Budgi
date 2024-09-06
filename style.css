@@ -1,6 +1,16 @@
+html{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
 
 body{
     background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 .titre{
@@ -130,10 +140,39 @@ nav a{
 
 .boutton{
     font-family: "Poppins", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     color: #0e1c36;
-    padding: 25px;
+    padding: 20px;
     border: solid 1px #0e1c36;
     border-radius: 10px;
     background-color: #9ee3d1;
+}
+
+.explication{
+    margin-top: 150px;
+    font-weight: 500;
+}
+
+.boutons{
+    margin-top: 150px;
+}
+
+.boutton:hover{
+    background-color: #c7e6dd;
+    color: #1f2838;
+}
+
+footer{
+    font-family: "Poppins", sans-serif;
+    background-color: #c7e6dd;
+    color: #0e1c36;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: #0e1c36;
+    padding-left: 10px;
 }
