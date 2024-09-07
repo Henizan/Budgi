@@ -23,6 +23,12 @@ body{
     justify-content: center;
     align-items: center;
   }
+.contenu a{
+    font-weight: 700;
+}
+  .contenu a:hover {
+    font-weight: 500;
+  }
 
 .contenu{
     font-family: "Poppins", sans-serif;
@@ -120,23 +126,16 @@ nav a{
     margin: 10px 0;
 }
 
+nav a:hover{
+    font-weight: 500;
+}
+
 .logo1 {
     position: fixed;
     padding: 15px;
     height: 150px;
 }
 
-
-.register_signin_form{
-    font-family: "Poppins", sans-serif;
-    width: 350px;
-    padding: 20px;
-    background-color: #9ee3d1;
-    color: #0e1c36;
-    flex-direction: column;
-    display: flex;
-    border-radius: 6px;
-}
 
 .boutton{
     font-family: "Poppins", sans-serif;
@@ -146,6 +145,7 @@ nav a{
     border: solid 1px #0e1c36;
     border-radius: 10px;
     background-color: #9ee3d1;
+    margin-left: 15px;
 }
 
 .explication{
@@ -158,21 +158,93 @@ nav a{
 }
 
 .boutton:hover{
-    background-color: #c7e6dd;
-    color: #1f2838;
+    background-color: #7bebcd;
+        color: #1f2838;
+        border: 2px solid #0e1c36;
 }
 
+.boutton:focus{
+    background-color: #acecdb;
+}
 footer{
     font-family: "Poppins", sans-serif;
     background-color: #c7e6dd;
     color: #0e1c36;
     padding: 40px 0;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .footer-links a{
     text-decoration: none;
     color: #0e1c36;
     padding-left: 10px;
+}
+
+.register_box{
+    padding: 15px;
+    border: 1px solid #0e1c36 ;
+    background-color: #c7e6dd;
+    border-radius: 6px;
+    width: 25vh;
+    justify-content: center;
+}
+
+.register_box a{
+text-decoration: none;
+color: #0e1c36;
+}
+
+.register_box a:hover{
+    font-weight: 500
+}
+
+.form{
+    background: #eafbf6;
+    border-radius: 6px;
+    border: 1px solid #0e1c36;
+    width: 95%;
+    height: 2.2vh;
+    margin: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+.form:focus{
+    outline: 1px solid #1f2838;
+    border: 1px solid #ccc;
+    background: #e2fbf3;
+}
+
+.register_signin_button{
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    color: #0e1c36;
+    padding: 12px;
+    border: solid 1px #0e1c36;
+    border-radius: 10px;
+    background-color: #9ee3d1;
+ margin-top: 15px;
+ width: 85%;
+}
+
+.register_signin_button:hover {
+        background-color: #7bebcd;
+        color: #1f2838;
+        border: 2px solid #0e1c36;
+}
+
+
+.register_signin_button:focus {
+    background-color: #acecdb;
+}
+
+.register_signin_phrase_logo{
+ text-align: left;
+ max-width: 35vh;
+ margin-right: 25%;
+ margin-bottom: 15%;
+}
+
+.logo2{
+    height: 28vh;
 }

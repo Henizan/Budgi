@@ -23,26 +23,43 @@
         <span class="line l3"></span>
     </button>
 <a href="index.html"><img src="images/budji transp.png" alt="logo" class="logo1"></a>
-        <div class="titre">            
-    <h1>Bienvenue sur <span>budgi</span></h1></div>
-    <div class="contenu"><p>l'appli pour qui aide le portefeuille des étudiant</p> <br>
-    <a href="#section-explication"><p>Commencer !</p></div></a>
+        <div class="titre"> 
 
-    <div class="contenu explication" id="section-explication"><h2>Pourquoi choisir Budgi?</h2>
-    <p>Avec Budgi, gérez facilement et totalement gratuitement votre budget en répartissant vos dépenses dans des catégories comme le loisir, la nourriture, les transports, etc.</p>
-    <p>Budgi vous offre également des conseils pratiques pour optimiser vos finances et vous assure d'être averti si vous dépassez votre budget !</p>
-<p>Commencez dès aujourd'hui à mieux gérer vos dépenses et à améliorer votre santée financière avec Budgi !</p></div>
-
-<div class="contenu boutons">
-    <h2>Créer un compte gratuitement dès maintenant ou connecter vous !</h2>
-    <a href="register.html"><button class="boutton">Créer un compte</button></a>
-    <a href="signin.html"><button class="boutton">Se connecter</button></a>
+            <div class="register_signin_phrase_logo">
+                
+                <h1><span>Budgi</span></h1>
+                <p>Avec Budgi, gérez facilement et totalement gratuitement votre budget</p>
+            </div>
+    <div class="register_box">
+        <h2>Inscription à Budgi</h2>
+        <p>C'est simple et rapide !</p>
+    <form action="register.php" method="post" class="register_signin_form">
+        <div>
+            <input type="text" id="fullname" placeholder="Nom Complet" class="form">
+        </div>
+        <div >
+            <input type="email" id="email" placeholder="Email" class="form">
+        </div>
+        <div >
+            <input type="password" id="password" placeholder="Mot de passe" class="form">
+        </div>
+        <div >
+            <input type="password" id="password_confirm" placeholder="Confirmer votre mot de passe" class="form">
+        </div>
+        <div>
+            <input type="submit" id="register" value="S'inscrire !" class="register_signin_button">
+        </div>
+    </form>
+    <a href="signin.html"><p>j'ai déjà un compte, me connecter</p></a>
 </div>
-    
+</div>
+
+
+
 <footer>
     <div class="footer-links">
-        <a href="#">Accueil</a>
-        <a href="register.html">S'inscrire</a>
+        <a href="index.html">Accueil</a>
+        <a href="#">S'inscrire</a>
         <a href="signin.html">Se connecter</a>
         <a href="#">Mentions légales</a>
         <a href="#">Politiques de confidentialité</a>
@@ -50,6 +67,6 @@
     <p>&copy; 2024 Budgi. Tous droits réservés</p>
 </footer>
 
-                <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
