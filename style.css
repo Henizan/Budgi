@@ -186,7 +186,7 @@ footer{
     border: 1px solid #0e1c36 ;
     background-color: #c7e6dd;
     border-radius: 6px;
-    width: 25vh;
+    width: 37vh;
     justify-content: center;
 }
 
@@ -207,6 +207,12 @@ color: #0e1c36;
     height: 2.2vh;
     margin: 5px;
     font-family: "Poppins", sans-serif;
+    padding: 5px;
+}
+
+.form-group {
+    display: block;
+    margin-right: 5%;
 }
 
 .form:focus{
@@ -247,4 +253,16 @@ color: #0e1c36;
 
 .logo2{
     height: 28vh;
+}
+
+label{
+    text-align: left;
+    display: block;
+    margin-left: 5px;
+}
+
+.name_form{
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
 }
