@@ -137,14 +137,7 @@ nav a:hover{
 }
 
 
-.boutton{
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    color: #0e1c36;
-    padding: 20px;
-    border: solid 1px #0e1c36;
-    border-radius: 10px;
-    background-color: #9ee3d1;
+.indx {
     margin-left: 15px;
 }
 
@@ -153,19 +146,6 @@ nav a:hover{
     font-weight: 500;
 }
 
-.boutons{
-    margin-top: 150px;
-}
-
-.boutton:hover{
-    background-color: #7bebcd;
-        color: #1f2838;
-        border: 2px solid #0e1c36;
-}
-
-.boutton:focus{
-    background-color: #acecdb;
-}
 footer{
     font-family: "Poppins", sans-serif;
     background-color: #c7e6dd;
@@ -214,6 +194,7 @@ color: #0e1c36;
 .form-group {
     display: block;
     margin-right: 5%;
+    font-family: "Poppins", sans-serif;
 }
 
 .form:focus{
@@ -222,7 +203,7 @@ color: #0e1c36;
     background: #e2fbf3;
 }
 
-.register_signin_button{
+.boutton{
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     color: #0e1c36;
@@ -230,18 +211,21 @@ color: #0e1c36;
     border: solid 1px #0e1c36;
     border-radius: 10px;
     background-color: #9ee3d1;
- margin-top: 15px;
- width: 85%;
 }
 
-.register_signin_button:hover {
+.register_signin{
+    margin-top: 15px;
+    width: 85%;
+}
+
+.boutton:hover {
         background-color: #7bebcd;
         color: #1f2838;
         border: 2px solid #0e1c36;
 }
 
 
-.register_signin_button:focus {
+.boutton:focus {
     background-color: #acecdb;
 }
 
@@ -285,4 +269,16 @@ label{
 .transac-table{
     color: #1f2838;
     min-width: 33vh;
+}
+
+.budget-setup{
+    font-family: "Poppins", sans-serif;
+    color: #1f2838;
+    
+}
+
+.budget{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
 }

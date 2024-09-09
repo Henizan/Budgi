@@ -1,3 +1,17 @@
+<?php
+session_start();
+var_dump($_SESSION);
+
+$error_msg = "";
+
+$error_msg = "";
+$servername = "localhost";
+$port=3306;
+$username = "root";
+$dbpassword = "";
+$dbname = "budgi_db";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +27,8 @@
 </head>
 <body>
     <nav>
-        <a href="#" style="color: #254888;">gestion du budget</a>
-        <a href="register.php" >Profil</a>
+        <a href="#" style="color: #254888;">Tableau de bord</a>
+        <a href="#" >Profil</a>
         <a href="index.html">Se déconnecter</a>
     </nav>
     <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
@@ -22,9 +36,9 @@
         <span class="line l2"></span>
         <span class="line l3"></span>
     </button>
-<a href="index.html"><img src="images/budji transp.png" alt="logo" class="logo1"></a>
+<a href="gestion.html"><img src="images/budji transp.png" alt="logo" class="logo1"></a>
 <div class="titre">
-    <h1>Gestion de votre budget</h1></div>
+    <h1>Tableau de bord</h1></div>
     <div class="gestion-page">
     <div class="contenu">
         <h3>Votre budget du mois</h3>
@@ -43,7 +57,7 @@
             <input type="text" id="categorie" name="categorie" placeholder="Categorie..." class="form">
             <label for="date">Date de la transaction :</label>
             <input type="datetime-local" id="date" name="date" required class="form">
-            <input type="submit" value="Ajouter la transaction" class="register_signin_button" style="margin-left: 3.5vh;">
+            <input type="submit" value="Ajouter la transaction" class="register_signin boutton" style="margin-left: 3.5vh;">
         </form>
     </div>
     <div class="transac-table">

@@ -1,15 +1,17 @@
 <?php
+
+session_start();
+
                 $error_msg= "";
                 $servername = "localhost";
                 $username = "root";
-                $password = "";
+                $dbpassword = "";
                 $dbname = "budgi_db";
                 
                 
                 try{
-                  $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $password);
+                  $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
                   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                  //echo "connexion réussie !";
                 }
                 catch(PDOException $e){
                     echo "Erreur :".$e->getMessage();
@@ -29,10 +31,14 @@
                         if ($rep) {
 
                         if(password_verify($password, $rep['password'])){
+                            $_SESSION['user_id'] = $rep['id'];
+                            if($rep['budget_setup_complete']==0){
+                            header("location: set-budget.php");
+                        }else{
                             header("location: gestion.html");
-                            exit;
                         }
 
+}
                     else{
                             $error_msg = "Mot de passe incorrect. ";
                         }
@@ -99,7 +105,7 @@
                             class="form">
                     </div>
                     <div>
-                        <input type="submit" name="submit" value="Entrer !" class="register_signin_button">
+                        <input type="submit" name="submit" value="Entrer !" class="register_signin boutton">
                     </div>
                 </form>
                 <a href="#">

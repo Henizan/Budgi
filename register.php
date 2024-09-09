@@ -1,8 +1,11 @@
 <?php
+
+session_start();
 $error_msg = "";
 $servername = "localhost";
+$port=3306;
 $username = "root";
-$password = "root";
+$dbpassword = "";
 $dbname = "budgi_db";
 
 
@@ -30,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $password);
+            $conn = new PDO("mysql:host=$servername;port=$port;dbname=budgi_db", $username, $dbpassword);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $req = $conn->prepare("SELECT * FROM users WHERE email = :email");
@@ -46,10 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         "name" => $name,
                         "surname" => $surname,
                         "email" => $email,
-                        "password" => $hased_password
+                        "password" => $hashed_password
                     ]
                 );
-                header("Location: signin.php");
+
+                $_SESSION['user_id'] = $conn->lastInsertId();
+
+                header("Location: set-budget.php");
                 exit;
 
             }
@@ -135,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         placeholder="Confirmez votre mot de passe..." class="form" >
                 </div>
                 <div>
-                    <input type="submit" name="submit" value="Entrer !" class="register_signin_button">
+                    <input type="submit" name="submit" value="Entrer !" class="register_signin boutton">
                 </div>
             </form>
             <a href="signin.php">
