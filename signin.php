@@ -1,3 +1,52 @@
+<?php
+                $error_msg= "";
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "budgi_db";
+                
+                
+                try{
+                  $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $password);
+                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  //echo "connexion réussie !";
+                }
+                catch(PDOException $e){
+                    echo "Erreur :".$e->getMessage();
+                }
+
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+
+
+                    if (!empty($email) && !empty($password)) {
+
+                        $req = $conn->prepare("SELECT * FROM users WHERE email = :email");
+                        $req->execute(['email' => $email]);
+                        $rep = $req->fetch(PDO::FETCH_ASSOC);
+
+                        if ($rep) {
+
+                        if(password_verify($password, $rep['password'])){
+                            header("location: gestion.html");
+                            exit;
+                        }
+
+                    else{
+                            $error_msg = "Mot de passe incorrect. ";
+                        }
+                    } else {
+                        $error_msg = "Aucun utilisateur trouvé avec cet email";
+                    }
+                } else {
+                    $error_msg = "Veuillez remplir tous les champs";
+                }
+                }
+                
+                ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +63,8 @@
 <body>
     <nav>
         <a href="#" >Accueil</a>
-        <a href="register.html" >Créer un compte</a>
-        <a href="signin.html" style="color: #254888;">Se connecter</a>
+        <a href="register.php" >Créer un compte</a>
+        <a href="signin.php" style="color: #254888;">Se connecter</a>
     </nav>
     <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
         <span class="line l1"></span>
@@ -33,40 +82,11 @@
                 <h2>Se connecter à Budgi</h2>
                 <p>C'est simple et rapide !</p>
 
-                <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "budgi_db";
+
+                <?php if (!empty($error_msg)): ?>
+        <p style="color: red;"><?= htmlspecialchars($error_msg) ?></p>
+           <?php endif; ?>
                 
-                
-                try{
-                  $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $password);
-                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                  echo "connexion réussie !";
-                }
-                catch(PDOException $e){
-                    echo "Erreur :".$e->getMessage();
-                }
-
-                if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
-                    if ($email != "" && $password !="") {
-
-                        $req = $conn->query("SELECT * FROM users WHERE email = '$email' and password = '$password'");
-                        $rep = $req->fetch();
-                        if($rep['id'] != false ){
-
-                        }
-                        else{
-                            $error_msg = "email ou mdp incorrect";
-                        }
-                    }
-                }
-                ?>
-
-
 
                 <form action="signin.php" method="post" class="register_signin_form">
                     <div class="form-group">

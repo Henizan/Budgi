@@ -173,6 +173,7 @@ footer{
     padding: 40px 0;
     text-align: center;
     margin-top: 150px;
+    
 }
 
 .footer-links a{
@@ -265,4 +266,23 @@ label{
     display: flex;
     justify-content: space-between;
     width: 97%;
+}
+
+.gestion-page{
+    font-family: "Poppins", sans-serif;
+   display: flex;
+   justify-content:space-around;
+   align-items: flex-start;
+   padding: 20px;
+}
+
+.new-transac{
+    color: #1f2838;
+    min-width: 33vh;
+    
+}
+
+.transac-table{
+    color: #1f2838;
+    min-width: 33vh;
 }

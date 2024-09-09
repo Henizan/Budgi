@@ -7,3 +7,7 @@ function toggleNav(){
     hamburgerbutton.classList.toggle("active")
     navigation.classList.toggle("active")
 }
+
+const budget =2000;
+
+document.getElementById("budget-total").textContent = budget;
