@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 'user_id' => $_SESSION['user_id']
                 
             ]);
-            header("location: gestion.html");
+            header("location: gestion.php");
             exit;
     } else {
         $error_msg = "Vous devez être connecté pour définir un budget";
@@ -78,19 +78,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     <div class="titre">
         <h2>Commençons par définir votre budget...</h2>
     </div>
+    <div class="gestion-page">
     <div class="register_box">
     <?php if (!empty($error_msg)): ?>
                 <p style="color: red;"><?= htmlspecialchars($error_msg) ?></p>
             <?php endif; ?>
         <form action="set-budget.php" method="post" class="register_signin_form">
             <div class="form-group">
-                <label for="budget_limit">Limite de Budget</label>
-                <input type="number" name="budget_limit" id="budget_limit" placeholder="Entrez votre limite de budget..." class="form">
+                <label for="budget_limit">Limite de Dépenses</label>
+                <input type="number" name="budget_limit" id="budget_limit" placeholder="Entrez votre limite de dépenses..." class="form budget-setup">
                 <label for="budget_current">Budget Actuel</label>
                 <input type="number" name="current_budget" id="current_budget" placeholder="Entrez votre budget actuel..." class="form">
                 <input type="submit" name="submit" value="Définir le Budget !" class="budget boutton">
             </div>
         </form>
+    </div>
     </div>
 <footer>
     <div class="footer-links">

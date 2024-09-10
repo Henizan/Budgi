@@ -35,7 +35,7 @@ session_start();
                             if($rep['budget_setup_complete']==0){
                             header("location: set-budget.php");
                         }else{
-                            header("location: gestion.html");
+                            header("location: gestion.php");
                         }
 
 }

@@ -2,7 +2,10 @@
 session_start();
 var_dump($_SESSION);
 
-$error_msg = "";
+if(!isset($_SESSION['user_id'])) {
+    header("location: signin.php");
+    exit;
+}
 
 $error_msg = "";
 $servername = "localhost";
@@ -10,6 +13,20 @@ $port=3306;
 $username = "root";
 $dbpassword = "";
 $dbname = "budgi_db";
+
+try{
+    $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $req = $conn->prepare("SELECT budget_limit, current_budget FROM users WHERE id = :user_id ");
+  $req->execute(['user_id' => $_SESSION['user_id']]);
+  $user = $req->fetch((PDO::FETCH_ASSOC));
+
+  $budget_limit = $user['budget_limit'];
+  $current_budget = $user['current_budget'];
+} catch (PDOException $e) {
+    echo "Erreur de connexion à la base de données: " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +59,8 @@ $dbname = "budgi_db";
     <div class="gestion-page">
     <div class="contenu">
         <h3>Votre budget du mois</h3>
-        <p>Budget total : <strong id="budget-total"></strong>€</p>
-        <p>Dépenses totales : <strong id="depenses-total"></strong>€</p>
+        <p>Budget Actuel : <strong><?= htmlspecialchars($budget_limit) ?></strong>€</p>
+        <p>Dépenses totales : <strong><?= htmlspecialchars($current_budget) ?></strong>€</p>
     </div>
 
     <div class="new-transac">
