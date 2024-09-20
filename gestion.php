@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+
 
 if(!isset($_SESSION['user_id'])) {
     header("location: signin.php");
@@ -25,14 +25,9 @@ try{
   $budget_limit = $user['budget_limit'];
   $current_budget = $user['current_budget'];
 
-   $stmt = $conn->prepare(
-    "SELECT description, amount, categories
-    FROM transactions 
-    WHERE user_id = :user_id 
-    ORDER BY date DESC"
-   );
+   $stmt = $conn->prepare("SELECT * FROM transactions WHERE user_id = :user_id");
    $stmt->execute(['user_id' => $_SESSION['user_id']]);
-  $transactions = $stmt->fetch((PDO::FETCH_ASSOC));
+  $transactions = $stmt->fetchAll((PDO::FETCH_ASSOC));
 
 } catch (PDOException $e) {
     echo "Erreur de connexion à la base de données: " . $e->getMessage();
@@ -108,9 +103,9 @@ try{
                 <?php if (!empty($transactions)): ?>
                     <?php foreach ($transactions as $transaction): ?>
                 <tr>
-                    <td><?= htmlspecialchars($transaction['description']) ?></td>
-                    <td><?= htmlspecialchars($transaction['amount']) ?></td>
-                    <td><?= htmlspecialchars($transaction['category']) ?></td>
+                    <td class="transac-table-title"><?= htmlspecialchars($transaction['description']) ?></td>
+                    <td class="transac-table-title"><?= htmlspecialchars($transaction['amount']) ?></td>
+                    <td class="transac-table-title"><?= htmlspecialchars($transaction['categorie']) ?></td>
                 </tr>
                 <?php endforeach ?>
                 <?php else: ?>

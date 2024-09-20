@@ -285,5 +285,12 @@ label{
     margin-top: 5%;
 }
 
-.transac-table-title{
+.transac-table td{
+    padding: 10px;
+    text-align: left;
+}
+
+.transac-table th{
+    padding: 10px;
+    text-align: left;
 }
