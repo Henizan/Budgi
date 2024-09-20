@@ -97,12 +97,12 @@ session_start();
                 <form action="signin.php" method="post" class="register_signin_form">
                     <div class="form-group">
                         <label for="surname">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Entrez votre email..." class="form">
+                        <input type="email" name="email" id="email" placeholder="Entrez votre email..." class="form register-form">
                     </div>
                     <div class="form-group">
                         <label for="surname">Mot de passe</label>
                         <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe..."
-                            class="form">
+                            class="form register-form">
                     </div>
                     <div>
                         <input type="submit" name="submit" value="Entrer !" class="register_signin boutton">

@@ -180,15 +180,18 @@ color: #0e1c36;
     font-weight: 500
 }
 
+.register-form{
+    width: 2.2vh;
+}
+
 .form{
     background: #eafbf6;
     border-radius: 6px;
     border: 1px solid #0e1c36;
     width: 95%;
-    height: 2.2vh;
     margin: 5px;
     font-family: "Poppins", sans-serif;
-    padding: 5px;
+    padding: 15px;
 }
 
 .form-group {
@@ -280,4 +283,7 @@ label{
     width: 80%;
     margin-left: 10%;
     margin-top: 5%;
+}
+
+.transac-table-title{
 }

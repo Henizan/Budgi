@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         <form action="set-budget.php" method="post" class="register_signin_form">
             <div class="form-group">
                 <label for="budget_limit">Limite de Dépenses</label>
-                <input type="number" name="budget_limit" id="budget_limit" placeholder="Entrez votre limite de dépenses..." class="form budget-setup">
+                <input type="number" name="budget_limit" id="budget_limit" placeholder="Entrez votre limite de dépenses..." class="form">
                 <label for="budget_current">Budget Actuel</label>
                 <input type="number" name="current_budget" id="current_budget" placeholder="Entrez votre budget actuel..." class="form">
                 <input type="submit" name="submit" value="Définir le Budget !" class="budget boutton">

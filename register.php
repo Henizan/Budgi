@@ -116,24 +116,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="name_form">
                     <div class="form-group">
                         <label for="name">Nom</label>
-                        <input type="text" name="name" id="name" placeholder="Entrez votre nom..." class="form"
+                        <input type="text" name="name" id="name" placeholder="Entrez votre nom..." class="form register-form"
                             >
                     </div>
                     <div class="form-group">
                         <label for="name">Prénom</label>
-                        <input type="text" name="surname" id="surname" placeholder="Entrez votre prénom..." class="form"
+                        <input type="text" name="surname" id="surname" placeholder="Entrez votre prénom..." class="form register-form"
                             >
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="surname">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Entrez votre email..." class="form"
+                    <input type="email" name="email" id="email" placeholder="Entrez votre email..." class="form register-form"
                         >
                 </div>
                 <div class="form-group">
                     <label for="surname">Mot de passe</label>
                     <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe..."
-                        class="form" >
+                        class="form register-form" >
                 </div>
                 <div class="form-group">
                     <label for="surname">Confirmez le Mot de passe</label>

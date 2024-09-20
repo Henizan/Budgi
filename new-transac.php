@@ -22,12 +22,14 @@ try {
         $amount = $_POST['amount'];
         $descritption = $_POST['description'];
         $user_id = $_SESSION['user_id'];
+        $categorie = $_POST['categorie'];
 
-        $req = $conn->prepare("INSERT INTO transactions (user_id, amount, description) VALUES (:user_id, :amount, :description)");
+        $req = $conn->prepare("INSERT INTO transactions (user_id, amount, description, categorie) VALUES (:user_id, :amount, :description, :categorie)");
         $req->execute([
             'user_id' => $user_id,
             'amount' => $amount,
-            'description' => $descritption
+            'description' => $descritption,
+            'categorie' => $categorie
         ]);
 
         $nouvreq = $conn->prepare("UPDATE users SET current_budget = current_budget - :amount WHERE id = :user_id");

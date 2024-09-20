@@ -24,6 +24,16 @@ try{
 
   $budget_limit = $user['budget_limit'];
   $current_budget = $user['current_budget'];
+
+   $stmt = $conn->prepare(
+    "SELECT description, amount, categories
+    FROM transactions 
+    WHERE user_id = :user_id 
+    ORDER BY date DESC"
+   );
+   $stmt->execute(['user_id' => $_SESSION['user_id']]);
+  $transactions = $stmt->fetch((PDO::FETCH_ASSOC));
+
 } catch (PDOException $e) {
     echo "Erreur de connexion à la base de données: " . $e->getMessage();
 }
@@ -53,14 +63,15 @@ try{
         <span class="line l2"></span>
         <span class="line l3"></span>
     </button>
-<a href="gestion.html"><img src="images/budji transp.png" alt="logo" class="logo1"></a>
+<a href="gestion.php"><img src="images/budji transp.png" alt="logo" class="logo1"></a>
 <div class="titre">
     <h1>Tableau de bord</h1></div>
     <div class="gestion-page">
     <div class="contenu">
         <h3>Votre budget du mois</h3>
-        <p>Budget Actuel : <strong><?= htmlspecialchars($budget_limit) ?></strong>€</p>
-        <p>Dépenses totales : <strong><?= htmlspecialchars($current_budget) ?></strong>€</p>
+        <p>Limite dépense : <strong><?= htmlspecialchars($budget_limit) ?></strong>€</p>
+        <p>Budget Actuel : <strong><?= htmlspecialchars($current_budget) ?></strong>€</p>
+
     </div>
 
     <div class="new-transac">
@@ -69,11 +80,16 @@ try{
             <label for="description">Description :</label>
             <input type="text" id="description" name="description" placeholder="Description..." class="form" required>
             <label for="montant">Montant :</label>
-            <input type="number" step="0.01" id="montant" name="montant" placeholder="0.00€" class="form" required> 
+            <input type="number" step="0.01" id="amount" name="amount" placeholder="0.00€" class="form" required> 
             <label for="categorie">Catégorie :</label>
-            <input type="text" id="categorie" name="categorie" placeholder="Categorie..." class="form">
-            <label for="date">Date de la transaction :</label>
-            <input type="datetime-local" id="date" name="date" required class="form">
+            <select type="text" id="categorie" name="categorie" placeholder="Categorie..." class="form">
+                <option value="Nourriture">Nourriture</option>
+                <option value="Loisirs">Loisirs</option>
+                <option value="Transport">Transport</option>
+                <option value="Santé">Santé</option>
+                <option value="Étude">Étude</option>
+                <option value="Autres">Autres</option>
+             </select>
             <input type="submit" value="Ajouter la transaction" class="register_signin boutton" style="margin-left: 3.5vh;">
         </form>
     </div>
@@ -82,15 +98,26 @@ try{
         <table>
             <thead>
                 <tr>
-                    <th>Description</th>
-                    <th>Montant</th>
-                    <th>Catégorie</th>
-                    <th>Date et heure</th>
-                    <th>Actions</th>
+                    <th class="transac-table-title">Description</th>
+                    <th class="transac-table-title">Montant</th>
+                    <th class="transac-table-title">Catégorie</th>
+                    <th class="transac-table-title">Actions</th>
                 </tr>
             </thead>
-            <tbody id="transactions">
-
+            <tbody>
+                <?php if (!empty($transactions)): ?>
+                    <?php foreach ($transactions as $transaction): ?>
+                <tr>
+                    <td><?= htmlspecialchars($transaction['description']) ?></td>
+                    <td><?= htmlspecialchars($transaction['amount']) ?></td>
+                    <td><?= htmlspecialchars($transaction['category']) ?></td>
+                </tr>
+                <?php endforeach ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">Aucune transaction n'a été ajoutée pour le moment.</td>
+                    </tr>
+                    <?php endif; ?>
             </tbody>
         </table>
     </div>
