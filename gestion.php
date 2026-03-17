@@ -8,11 +8,7 @@ if(!isset($_SESSION['user_id'])) {
 }
 
 $error_msg = "";
-$servername = "localhost";
-$port=3306;
-$username = "root";
-$dbpassword = "";
-$dbname = "budgi_db";
+require_once __DIR__ . '/config.php';
 
 try{
     $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
@@ -35,7 +31,7 @@ try{
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +41,7 @@ try{
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
     <link rel="stylesheet" href="style.css">
-    <title>Accueil</title>
+    <title>Tableau de bord</title>
 </head>
 <body>
     <nav>
@@ -64,8 +60,8 @@ try{
     <div class="gestion-page">
     <div class="contenu">
         <h3>Votre budget du mois</h3>
-        <p>Limite dépense : <strong><?= htmlspecialchars($budget_limit) ?></strong>€</p>
-        <p>Budget Actuel : <strong><?= htmlspecialchars($current_budget) ?></strong>€</p>
+        <p>Limite de dépenses : <strong><?= htmlspecialchars($budget_limit) ?></strong>€</p>
+        <p>Budget actuel : <strong><?= htmlspecialchars($current_budget) ?></strong>€</p>
 
     </div>
 
@@ -77,19 +73,19 @@ try{
             <label for="montant">Montant :</label>
             <input type="number" step="0.01" id="amount" name="amount" placeholder="0.00€" class="form" required> 
             <label for="categorie">Catégorie :</label>
-            <select type="text" id="categorie" name="categorie" placeholder="Categorie..." class="form">
+            <select id="categorie" name="categorie" placeholder="Categorie..." class="form">
                 <option value="Nourriture">Nourriture</option>
                 <option value="Loisirs">Loisirs</option>
                 <option value="Transport">Transport</option>
                 <option value="Santé">Santé</option>
-                <option value="Étude">Étude</option>
+                <option value="Études">Études</option>
                 <option value="Autres">Autres</option>
              </select>
             <input type="submit" value="Ajouter la transaction" class="register_signin boutton" style="margin-left: 3.5vh;">
         </form>
     </div>
     <div class="transac-table">
-        <h3>Vos dernière transactions</h3>
+        <h3>Vos dernières transactions</h3>
         <table>
             <thead>
                 <tr>

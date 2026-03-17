@@ -2,11 +2,7 @@
 
 session_start();
 $error_msg = "";
-$servername = "localhost";
-$port=3306;
-$username = "root";
-$dbpassword = "";
-$dbname = "budgi_db";
+require_once __DIR__ . '/config.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }elseif(empty($confirm_password)){
         $error_msg = "Veuillez confirmer votre mot de passe";
     } elseif ($password !== $confirm_password){
-        $error_msg = "les mots de passe ne correspondent pas !";
+        $error_msg = "Les mots de passe ne correspondent pas !";
     } else {
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -69,8 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
     <link rel="stylesheet" href="style.css">
-    <title>Accueil</title>
+    <title>Créer un compte</title>
 </head>
 
 <body>
@@ -131,21 +126,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         >
                 </div>
                 <div class="form-group">
-                    <label for="surname">Mot de passe</label>
+                    <label for="password">Mot de passe</label>
                     <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe..."
                         class="form register-form" >
                 </div>
                 <div class="form-group">
-                    <label for="surname">Confirmez le Mot de passe</label>
-                    <input type="password" name="password_confirm" id="password"
+                    <label for="password_confirm">Confirmez le mot de passe</label>
+                    <input type="password" name="password_confirm" id="password_confirm"
                         placeholder="Confirmez votre mot de passe..." class="form" >
                 </div>
                 <div>
-                    <input type="submit" name="submit" value="Entrer !" class="register_signin boutton">
+                    <input type="submit" name="submit" value="S'inscrire !" class="register_signin boutton">
                 </div>
             </form>
             <a href="signin.php">
-                <p>j'ai déjà un compte, me connecter</p>
+                <p>J'ai déjà un compte, me connecter</p>
             </a>
         </div>
     </div>

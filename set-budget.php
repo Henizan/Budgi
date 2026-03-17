@@ -5,11 +5,7 @@ var_dump($_SESSION);
 $error_msg = "";
 
 $error_msg = "";
-$servername = "localhost";
-$port=3306;
-$username = "root";
-$dbpassword = "";
-$dbname = "budgi_db";
+require_once __DIR__ . '/config.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -17,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $current_budget = $_POST['current_budget'];
 
     if (empty($budget_limit)){
-        $error_msg = "Veuilez indiquer votre limite de budget.";
+        $error_msg = "Veuillez indiquer votre limite de dépenses.";
     }elseif(empty($current_budget)){
         $error_msg = "Veuillez indiquer votre budget actuel. ";
     }else{
@@ -41,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
 } catch (PDOException $e) {
-    $error_msg = "Erreur lors de la connexion à la bdd :" . $e->getMessage();
+    $error_msg = "Erreur lors de la connexion à la base de données : " . $e->getMessage();
 
 
 }
@@ -51,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

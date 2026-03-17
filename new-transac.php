@@ -8,11 +8,7 @@ if(!isset($_SESSION['user_id'])) {
 }
 
 $error_msg = "";
-$servername = "localhost";
-$port=3306;
-$username = "root";
-$dbpassword = "";
-$dbname = "budgi_db";
+require_once __DIR__ . '/config.php';
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
@@ -20,7 +16,7 @@ try {
     
     if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
         $amount = $_POST['amount'];
-        $descritption = $_POST['description'];
+        $description = $_POST['description'];
         $user_id = $_SESSION['user_id'];
         $categorie = $_POST['categorie'];
 
@@ -28,7 +24,7 @@ try {
         $req->execute([
             'user_id' => $user_id,
             'amount' => $amount,
-            'description' => $descritption,
+            'description' => $description,
             'categorie' => $categorie
         ]);
 

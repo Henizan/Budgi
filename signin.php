@@ -3,10 +3,7 @@
 session_start();
 
                 $error_msg= "";
-                $servername = "localhost";
-                $username = "root";
-                $dbpassword = "";
-                $dbname = "budgi_db";
+                require_once __DIR__ . '/config.php';
                 
                 
                 try{
@@ -43,7 +40,7 @@ session_start();
                             $error_msg = "Mot de passe incorrect. ";
                         }
                     } else {
-                        $error_msg = "Aucun utilisateur trouvé avec cet email";
+                        $error_msg = "Aucun utilisateur trouvé avec cet email.";
                     }
                 } else {
                     $error_msg = "Veuillez remplir tous les champs";
@@ -54,7 +51,7 @@ session_start();
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +61,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
     <link rel="stylesheet" href="style.css">
-    <title>Accueil</title>
+    <title>Se connecter</title>
 </head>
 <body>
     <nav>
@@ -96,11 +93,11 @@ session_start();
 
                 <form action="signin.php" method="post" class="register_signin_form">
                     <div class="form-group">
-                        <label for="surname">Email</label>
+                        <label for="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Entrez votre email..." class="form register-form">
                     </div>
                     <div class="form-group">
-                        <label for="surname">Mot de passe</label>
+                        <label for="password">Mot de passe</label>
                         <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe..."
                             class="form register-form">
                     </div>
@@ -109,10 +106,10 @@ session_start();
                     </div>
                 </form>
                 <a href="#">
-                    <p>mot de passe oublié</p>
+                    <p>Mot de passe oublié</p>
                 </a>
                 <a href="register.php">
-                    <p>créer un compte</p>
+                    <p>Créer un compte</p>
                 </a>
             </div>
         </div>
