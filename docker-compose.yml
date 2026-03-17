@@ -1,0 +1,39 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8082:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_NAME=budgi_db
+      - DB_USER=budgi_user
+      - DB_PASS=budgi_password
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=budgi_db
+      - POSTGRES_USER=budgi_user
+      - POSTGRES_PASSWORD=budgi_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "5434:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@budgi.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "5051:80"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

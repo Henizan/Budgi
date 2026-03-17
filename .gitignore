@@ -1,2 +1,6 @@
 # Configuration locale
-config.php
+/config.php
+.env
+postgres_data/
+vendor/
+.DS_Store

@@ -1,48 +1,56 @@
-html{
+* {
+    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     height: 100%;
-
 }
 
-body{
+body {
     background-color: #f1f1f1;
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-.titre{
+.titre {
     font-family: "Poppins", sans-serif;
-    font-style: normal;
     text-align: center;
     color: #0e1c36;
-    height: 80vh;
+    min-height: 90vh; /* Increased height */
+    padding: 160px 40px 80px; /* Much more top padding to clear the logo */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-.contenu a{
+    gap: 60px; /* More space between logo phrase and box */
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.contenu a {
     font-weight: 700;
 }
-  .contenu a:hover {
-    font-weight: 500;
-  }
 
-.contenu{
+.contenu a:hover {
+    font-weight: 500;
+}
+
+.contenu {
     font-family: "Poppins", sans-serif;
     font-style: normal;
     text-align: center;
     color: #0e1c36;
 }
 
-.contenu a{
+.contenu a {
     text-decoration: none;
     color: #0e1c36;
 }
 
-h1{
+h1 {
     font-weight: 600;
 }
 
@@ -54,7 +62,7 @@ h1 span {
 }
 
 .nav-toggler {
-    position:fixed;
+    position: fixed;
     z-index: 10;
     top: 30px;
     right: 30px;
@@ -69,7 +77,7 @@ h1 span {
     background: transparent;
 }
 
-.line{
+.line {
     position: absolute;
     display: block;
     width: 100%;
@@ -78,27 +86,27 @@ h1 span {
     transition: transform 0.3s ease-out, opacity 0.1s ease-out;
 }
 
-.l1{
+.l1 {
     transform: translateY(-10px);
 }
 
-.l3{
+.l3 {
     transform: translateY(10px);
 }
 
-.nav-toggler.active .l1{
+.nav-toggler.active .l1 {
     transform: translateY(0px) rotate(135deg);
 }
 
-.nav-toggler.active .l2{
+.nav-toggler.active .l2 {
     opacity: 0;
 }
 
-.nav-toggler.active .l3{
+.nav-toggler.active .l3 {
     transform: translateY(0px) rotate(-135deg);
 }
 
-nav{
+nav {
     position: fixed;
     width: 100vw;
     min-height: 50vh;
@@ -117,7 +125,7 @@ nav.active {
     transform: translateY(0);
 }
 
-nav a{
+nav a {
     font-family: "Poppins", sans-serif;
     color: #0e1c36;
     font-weight: 600;
@@ -126,7 +134,7 @@ nav a{
     margin: 10px 0;
 }
 
-nav a:hover{
+nav a:hover {
     font-weight: 500;
 }
 
@@ -141,72 +149,76 @@ nav a:hover{
     margin-left: 15px;
 }
 
-.explication{
+.explication {
     margin-top: 150px;
     font-weight: 500;
 }
 
-footer{
+footer {
     font-family: "Poppins", sans-serif;
     background-color: #c7e6dd;
     color: #0e1c36;
     padding: 40px 0;
     text-align: center;
     margin-top: 150px;
-    
+
 }
 
-.footer-links a{
+.footer-links a {
     text-decoration: none;
     color: #0e1c36;
     padding-left: 10px;
 }
 
-.register_box{
-    padding: 15px;
-    border: 1px solid #0e1c36 ;
+.register_box {
+    padding: 30px 35px; /* Scaled back but still symmetrical */
+    border: 1px solid #0e1c36;
     background-color: #c7e6dd;
-    border-radius: 6px;
-    width: 37vh;
-    justify-content: center;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px; /* Reduced from 600px */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
-.register_box a{
-text-decoration: none;
-color: #0e1c36;
+.register_box a {
+    text-decoration: none;
+    color: #0e1c36;
 }
 
-.register_box a:hover{
+.register_box a:hover {
     font-weight: 500
 }
 
-.register-form{
-    width: 2.2vh;
+.register-form {
+    width: 100%;
 }
 
-.form{
+.form {
     background: #eafbf6;
     border-radius: 6px;
     border: 1px solid #0e1c36;
-    width: 95%;
-    margin: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0;
     font-family: "Poppins", sans-serif;
-    padding: 15px;
+    padding: 12px;
 }
 
 .form-group {
     display: block;
-    margin-right: 5%;
-    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
 }
 
-.form:focus{
+.form:focus {
     outline: 1px solid #1f2838;
     border: 1px solid #ccc;
     background: #e2fbf3;
 }
 
-.boutton{
+.boutton {
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     color: #0e1c36;
@@ -216,15 +228,15 @@ color: #0e1c36;
     background-color: #9ee3d1;
 }
 
-.register_signin{
+.register_signin {
     margin-top: 15px;
     width: 85%;
 }
 
 .boutton:hover {
-        background-color: #7bebcd;
-        color: #1f2838;
-        border: 2px solid #0e1c36;
+    background-color: #7bebcd;
+    color: #1f2838;
+    border: 2px solid #0e1c36;
 }
 
 
@@ -232,65 +244,99 @@ color: #0e1c36;
     background-color: #acecdb;
 }
 
-.register_signin_phrase_logo{
- text-align: left;
- max-width: 35vh;
- margin-right: 25%;
- margin-bottom: 15%;
+.register_signin_phrase_logo {
+    text-align: left;
+    max-width: 350px; /* Use px instead of vh for better control */
+    margin: 0; 
 }
 
-.logo2{
+.logo2 {
     height: 28vh;
 }
 
-label{
+label {
     text-align: left;
     display: block;
     margin-left: 5px;
 }
 
-.name_form{
+.name_form {
     display: flex;
-    justify-content: space-between;
-    width: 97%;
+    gap: 30px; /* Much larger gap as requested */
+    width: 100%;
 }
 
-.gestion-page{
+.name_form .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.gestion-page {
     font-family: "Poppins", sans-serif;
-   display: flex;
-   justify-content:space-around;
-   align-items: flex-start;
-   padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
 }
 
-.new-transac{
+.new-transac {
     color: #1f2838;
     min-width: 33vh;
-    
+
 }
 
-.transac-table{
+.transac-table {
     color: #1f2838;
     min-width: 33vh;
 }
 
-.budget-setup{
+.budget-setup {
     font-family: "Poppins", sans-serif;
     color: #1f2838;
 }
 
-.budget{
+.budget {
     width: 80%;
     margin-left: 10%;
     margin-top: 5%;
 }
 
-.transac-table td{
+.transac-table td {
     padding: 10px;
     text-align: left;
 }
 
-.transac-table th{
+.transac-table th {
     padding: 10px;
     text-align: left;
+}
+
+.action-btn {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.edit-btn {
+    background-color: #9ee3d1;
+    color: #0e1c36;
+    border: 1px solid #0e1c36;
+}
+
+.edit-btn:hover {
+    background-color: #7bebcd;
+}
+
+.delete-btn {
+    background-color: #ffb3b3;
+    color: #721c24;
+    border: 1px solid #721c24;
+}
+
+.delete-btn:hover {
+    background-color: #ff9999;
 }

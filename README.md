@@ -1,36 +1,48 @@
-# Budgi
-Budgi est une application web conçue pour aider les étudiants à gérer leur budget mensuel facilement. Elle permet de répartir ses dépenses dans plusieurs catégories (loisir, nourriture, etc.), et d'envoyer une notification ainsi que des conseils de gestion lorsqu'un de ces budgets atteint un certain stade.
+# 💰 Budgi - Gestion de Budget Étudiant
 
-## Technologies
-- **Frontend** : HTML5, CSS3, JavaScript (Vanilla)
-- **Backend** : PHP
-- **Base de données** : MySQL
+Budgi est une application web moderne et élégante conçue pour aider les étudiants à gérer leurs finances mensuelles de manière simple et visuelle.
 
-## Fonctionnalités principales
-- Gestion de budget mensuel étudiant
-- Catégorisation des dépenses (Loisirs, Nourriture, Transport, Santé, etc.)
-- Suivi du budget actuel par rapport à la limite fixée
-- Ajout et historique des transactions
-- Authentification sécurisée (Inscription, Connexion avec mots de passe hachés)
+## 📸 Aperçu de l'application
 
-## Structure
-- `index.html` : Page d'accueil et présentation
-- `gestion.php` : Tableau de bord utilisateur récapitulant le budget et les transactions
-- `new-transac.php` : Script backend ajoutant une nouvelle transaction
-- `set-budget.php` : Page permettant à l'utilisateur de définir sa limite de dépenses
-- `register.php` / `signin.php` : Pages de création de compte et de connexion
-- `style.css` / `script.js` : Styles et scripts de base
-- `images/` : Ressources graphiques
+### Tableau de Bord Complet
+Le centre de contrôle de tes finances, avec une visualisation claire de tes dépenses (Chart.js) et un historique complet des transactions.
+![Dashboard Budgi](assets/screenshots/dashboard.png)
 
-## Lancer le projet (local)
-### Prérequis
-- Serveur PHP/MySQL local en cours d'exécution (ex : XAMPP, WAMP, MAMP, Laragon...)
-- Base de données MySQL nommée `budgi_db`
+### Inscription et Connexion
+Une interface épurée pour commencer à gérer ton budget en quelques secondes.
+![Login Budgi](assets/screenshots/signin.png)
 
-### Configuration de la messagerie / Base de données
-Assurez-vous que les informations de la base de données (serveur, port, identifiant `root` et mot de passe vide) correspondent à votre serveur local dans les fichiers PHP.
+### Gestion du Profil
+Personnalise tes informations et ajuste tes limites de budget à tout moment.
+![Profil Budgi](assets/screenshots/profile.png)
 
-### Lancement
-1. Placer ce dossier dans le dossier racine de votre serveur web (ex : `htdocs` ou `www`).
-2. Démarrer les services Apache et MySQL.
-3. Ouvrir votre navigateur web et accéder à `http://localhost/Budgi/` (ou le nom donné au dossier).
+## 🚀 Fonctionnalités Clés
+
+- **Visualisation par Chart.js** : Répartition automatique de tes dépenses par catégorie (Nourriture, Loisirs, Transport, etc.).
+- **Gestion Complète des Transactions** : Ajoute, modifie ou supprime tes dépenses en temps réel.
+- **Calculateur de Budget** : Ton solde actuel se met à jour instantanément après chaque action.
+- **Sécurité et Modernité** : Architecture robuste utilisant Docker, PostgreSQL et Composer (`phpdotenv`).
+
+## 🛠️ Technologies
+
+- **Backend** : PHP 8.2 (Apache)
+- **Base de données** : PostgreSQL 15
+- **Dépendances** : Composer, phpdotenv
+- **Frontend** : HTML5, Vanilla CSS, JavaScript, Chart.js
+- **Infrastructure** : Docker, Docker Compose
+
+## 📦 Installation Rapide (Docker)
+
+1. **Configurer l'environnement** :
+   ```bash
+   cp .env.example .env
+   ```
+2. **Lancer l'application** :
+   ```bash
+   docker-compose up -d --build
+   ```
+3. **Accéder au projet** :
+   Ouvrez [http://localhost:8082](http://localhost:8082).
+
+---
+Développé avec ❤️ pour simplifier la vie des étudiants.

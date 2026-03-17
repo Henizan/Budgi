@@ -2,7 +2,6 @@
 
 session_start();
 $error_msg = "";
-require_once __DIR__ . '/config.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,8 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+        require_once __DIR__ . '/../config/database.php'; // This line is added/changed
+
         try {
-            $conn = new PDO("mysql:host=$servername;port=$port;dbname=budgi_db", $username, $dbpassword);
+            $conn = new PDO($dsn, $username, $dbpassword);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $req = $conn->prepare("SELECT * FROM users WHERE email = :email");
@@ -76,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <title>Créer un compte</title>
 </head>
 
@@ -133,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="password_confirm">Confirmez le mot de passe</label>
                     <input type="password" name="password_confirm" id="password_confirm"
-                        placeholder="Confirmez votre mot de passe..." class="form" >
+                        placeholder="Confirmez votre mot de passe..." class="form register-form" >
                 </div>
                 <div>
                     <input type="submit" name="submit" value="S'inscrire !" class="register_signin boutton">

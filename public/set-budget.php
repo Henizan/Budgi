@@ -1,12 +1,8 @@
 <?php
 session_start();
-var_dump($_SESSION);
 
 $error_msg = "";
-
-$error_msg = "";
-require_once __DIR__ . '/config.php';
-
+require_once __DIR__ . '/../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $budget_limit = $_POST['budget_limit'];
@@ -16,32 +12,32 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $error_msg = "Veuillez indiquer votre limite de dépenses.";
     }elseif(empty($current_budget)){
         $error_msg = "Veuillez indiquer votre budget actuel. ";
-    }else{
+    } else {
         try {
-            $conn = new PDO("mysql:host=$servername;port=$port;dbname=budgi_db", $username, $dbpassword);
+            $conn = new PDO($dsn, $username, $dbpassword);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if(isset($_SESSION['user_id'])){
 
-            $req = $conn ->prepare("UPDATE users SET budget_limit = :budget_limit, current_budget = :current_budget, budget_setup_complete = 1 WHERE id = :user_id");
-            $req->execute([
-                'budget_limit' => $budget_limit,
-                'current_budget' => $current_budget,
-                'user_id' => $_SESSION['user_id']
-                
-            ]);
-            header("location: gestion.php");
-            exit;
-    } else {
-        $error_msg = "Vous devez être connecté pour définir un budget";
+                $req = $conn ->prepare("UPDATE users SET budget_limit = :budget_limit, current_budget = :current_budget, budget_setup_complete = 1 WHERE id = :user_id");
+                $req->execute([
+                    'budget_limit' => $budget_limit,
+                    'current_budget' => $current_budget,
+                    'user_id' => $_SESSION['user_id']
+                    
+                ]);
+                header("location: gestion.php");
+                exit;
+        } else {
+            $error_msg = "Vous devez être connecté pour définir un budget";
+        }
+
+    } catch (PDOException $e) {
+        $error_msg = "Erreur lors de la connexion à la base de données : " . $e->getMessage();
+
+
     }
-
-} catch (PDOException $e) {
-    $error_msg = "Erreur lors de la connexion à la base de données : " . $e->getMessage();
-
-
-}
-}
+    }
 }
 
 ?>
@@ -56,14 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <title>Mise en place du budget</title>
 </head>
 <body>
     <nav>
-        <a href="#" style="color: #254888;">Accueil</a>
-        <a href="register.php" >Créer un compte</a>
-        <a href="signin.php">Se connecter</a>
+        <a href="gestion.php">Accueil</a>
+        <a href="profile.php">Profil</a>
+        <a href="logout.php">Se déconnecter</a>
     </nav>
     <button type="button" aria-label="toggle curtain navigation" class="nav-toggler">
         <span class="line l1"></span>

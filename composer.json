@@ -1,0 +1,14 @@
+{
+    "name": "henizan/budgi",
+    "description": "Budget management for students",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "authors": [
+        {
+            "name": "Hugo",
+            "email": "hugo@example.com"
+        }
+    ]
+}

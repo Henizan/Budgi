@@ -3,16 +3,15 @@
 session_start();
 
                 $error_msg= "";
-                require_once __DIR__ . '/config.php';
-                
-                
-                try{
-                  $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
-                  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                }
-                catch(PDOException $e){
-                    echo "Erreur :".$e->getMessage();
-                }
+                require_once __DIR__ . '/../config/database.php';
+
+try {
+    $conn = new PDO($dsn, $username, $dbpassword);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch(PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $email = $_POST['email'];
@@ -60,7 +59,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,700,1,200" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
     <title>Se connecter</title>
 </head>
 <body>

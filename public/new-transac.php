@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SESSION);
 
 if(!isset($_SESSION['user_id'])) {
     header("location: signin.php");
@@ -8,10 +7,10 @@ if(!isset($_SESSION['user_id'])) {
 }
 
 $error_msg = "";
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../config/database.php';
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=budgi_db", $username, $dbpassword);
+    $conn = new PDO($dsn, $username, $dbpassword);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
